@@ -1,168 +1,136 @@
-import { use, useState } from "react";
-import './App.css';
-
-const Counter=()=>{
-  const [count, setCount] = useState(0);
-  const increment = () => {
-    if (count < 100) {
-      setCount(count + 1);
-    }
-  };
-  const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-  const reset = () => {
-    setCount(0);
-  };
-  const setToMax = () => {
-    setCount(100);
-  };
-  return (
-    <div>
-      <h2>카운터 Counter</h2>
-     <div>
-        <button onClick={decrement}>-</button>
-        <span>{count}</span>
-        <button onClick={increment}>+</button>
-      </div>
-      <div>
-        <button onClick={reset}>0으로 초기화</button>
-        <button onClick={setToMax}>최대값(100)</button>
-      </div>
-      <div>
-        현재 값:{count}
-      </div>
-    </div>
-  );
-}
-const SetText=()=>{
-
-  const [text, setText] = useState("");
-
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
-
-  return (
-    <div>
-      <h1>입력 필드 이벤트 SetText</h1>
-      <input type="text" onChange={handleChange} placeholder="입력하세요" />
-      <p>입력한 값: {text}</p>
-    </div>
-  )
+import React, { useState } from "react";
 
 
-}
+const quizData = [
+  { question: "지구는 태양을 돈다.", answer: "O" },
+  { question: "1 + 1 = 3 이다.", answer: "X" },
+  { question: "코끼리는 날 수 있다.", answer: "X" },
+  { question: "물은 얼면 부피가 줄어든다.", answer: "X" },
+];
 
-function ChangeApp() {
-  const [text, setText] = useState("");
 
 
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
+function Student() {
+
+  const [students, setStudents] = useState([
+    { id: 1, name: "Alice", age: 21 },
+    { id: 2, name: "Bob", age: 22 },
+    { id: 3, name: "Charlie", age: 23 },
+  ]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [newStudent, setNewStudent] = useState({ name: "", age: "" });
 
 
   return (
-    <div>
-      <h1>입력 필드 이벤트 ChangeApp</h1>
-      <input type="text" onChange={handleChange} placeholder="입력하세요" />
-      <p>입력한 값: {text}</p>
-    </div>
-  );
-}
+    <div style={{ padding: "20px" }}>
+      <h1>학생 목록</h1>
+      <ul>
+        {students.map((student) => (
+          <li key={student.id}>
+            <button onClick={() => setSelectedStudent(student)}>
+              {student.name}
+            </button>
+  age : {student.age}
 
 
-function OnChangeApp(props) {
-  const [text, setText] = useState("");
+          </li>
+        ))}
+
+<br></br>
+
+        {students.map( (student) => (
+
+          <li key={student.id}>
+            <button onClick={() => setSelectedStudent(student)}>
 
 
-  const handleChange = (event) => {
-    setText(props.onChange());
-  };
+              {student.name}
+            </button>
+              age: {student.age}
+
+          </li>
+
+        ) )}
+
+      </ul>
+
+     {/*useState(null);이었기 때문에 false로 인식하고 먼저 실행은 안됨*/}
+      {selectedStudent && (
+        <div style={{ marginTop: "20px", border: "1px solid black", padding: "10px" }}>
+          <h2>학생 정보</h2>
+          <p>이름: {selectedStudent.name}</p>
+          <p>나이: {selectedStudent.age}세</p>
+        </div>
+      )}
 
 
-  return (
-    <div>
-      <h1>입력 필드 이벤트 OnChangeApp</h1>
-      <input type="text" onChange={handleChange} placeholder="입력하세요" />
-      <input type="text" onChange={props.onChange} placeholder="입력하세요" />
-      <p>입력한 값: {text}</p>
-    </div>
-  );
-}
+      <div style={{ marginTop: "20px" }}>
+        <h2>새 학생 추가</h2>
+        <input
+          type="text"
+          placeholder="이름"
+          value={newStudent.name}
+          onChange={(e) => setNewStudent({ ...newStudent, name: e.target.value })}
+        />
+        <input
+          type="number"
+          placeholder="나이"
+          value={newStudent.age}
+          onChange={(e) => setNewStudent({ ...newStudent, age: e.target.value })}
+        />
+        <button
+          onClick={() => {
+            const newId = students.length + 1;
+            setStudents([...students, { id: newId, name: newStudent.name, age: newStudent.age }]);
+            setNewStudent({ name: "", age: "" });
+          }}
+        >
+          추가
+        </button>
 
-function SetBgColor() {
+        <button
+          onClick={() => {
+            const newId = students.length  + 1;
+            setStudents([...students, {id: newId, name: newStudent.name, age: newStudent.age}]);
+            setNewStudent({ name: "", age: "" });
+          }}
+        >
+          추가
+        </button>
 
- const [bgColor, setBgColor] = useState("white");
- return (
-    <div>
-      <h1>마우스 이벤트 SetBgColor</h1>
-      <div
-        style={{ width: "200px", height: "100px", backgroundColor: bgColor, textAlign: "center", lineHeight: "100px" }}
-        onMouseEnter={() => setBgColor("lightblue")}
-        onMouseLeave={() => setBgColor("white")}
-      >
-        마우스를 올려보세요!
+
       </div>
     </div>
   );
 
-}
-
-
-function SetKey() {
- const [key, setKey] = useState("");
-
- const handleKeyDown = (event) => {
-    setKey(event.key);
-  };
-
-
-  return (
-    <div>
-      <h1>키보드 이벤트</h1>
-      <input type="text" onKeyDown={handleKeyDown} placeholder="키를 눌러보세요" />
-      <p>입력한 키: {key}</p>
-    </div>
-  );
-
 
 
 }
 
 
-function HandleSubmit() {
-  const [name, setName] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // 기본 폼 제출 동작 방지
-    alert(`제출된 이름: ${name}`);
-  };
-
-  return (
-    <div>
-      <h1>폼 제출 이벤트</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="이름 입력" />
-        <button type="submit">제출</button>
-      </form>
-
-
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="이름 입력" />
-        <button type="submit">제출</button>
-      </form>
-    </div>
-  );
-
-}
-
- let counter=0;
 
 function App() {
+  const [currentIndex, setCurrentIndex] = useState(0); //현재문제
+  const [score, setScore] = useState(0); //총 몇개ㅐ 맞췄냐틀렸냐
+  const [showResult, setShowResult] = useState(false); //결과화면을 보여줄지 문제화면을 보여줄지말지
+
+
+  const handleAnswer = (userAnswer) => {
+    if (userAnswer === quizData[currentIndex].answer) {
+      setScore(score + 1);
+      alert("정답입니다! ✅");
+    } else {
+      alert("틀렸습니다! ❌");
+    }
+
+   //이벤트 발생시 문제가 변경됨.
+    if (currentIndex + 1 < quizData.length) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      setShowResult(true);
+    }
+  };
 
 
 
@@ -170,23 +138,48 @@ function App() {
 
   return (
     <>
-      <Counter></Counter>
-      <SetText></SetText>
-      <ChangeApp></ChangeApp>
+    <div style={{ textAlign: "center", padding: "20px" }}>
+      <h1>OX 퀴즈 게임 🏆</h1>
 
 
-      <OnChangeApp onChange={(event)=>{
-        return counter++;
-      }}></OnChangeApp>
+      {!showResult ? (
+        <>
+          <h2>{quizData[currentIndex].question}</h2>
+          <button
+            onClick={() => handleAnswer("O")}
+            style={{ marginRight: "10px", padding: "10px 20px", fontSize: "18px" }}
+          >
+
+          
+            O
+          </button>
+
+          <button
+            onClick={() => handleAnswer("X")}
+            style={{ padding: "10px 20px", fontSize: "18px" }}
+          >
+            X
+          </button>
+
+        </>
+      ) : (
+        <div>
+          <h2>게임 종료!</h2>
+          <p>당신의 점수: {score} / {quizData.length}</p>
+          <button onClick={() => { setCurrentIndex(0); setScore(0); setShowResult(false); }}>
+            다시 시작 🔄
+          </button>
+
+        </div>
+      )}
+    </div>
+
+    
+    
+    <Student></Student>
 
 
-      <SetBgColor></SetBgColor>
-
-
-      <SetKey></SetKey>
-      <HandleSubmit></HandleSubmit>
     </>
-
   );
 }
 
