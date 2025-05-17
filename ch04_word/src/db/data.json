@@ -11,6 +11,18 @@
     {
       "id": "3",
       "day": 3
+    },
+    {
+      "id": "5",
+      "day": 5
+    },
+    {
+      "id": "5",
+      "day": 5
+    },
+    {
+      "id": "5",
+      "day": 5
     }
   ],
   "words": [
@@ -25,14 +37,7 @@
       "id": "2",
       "day": 1,
       "eng": "apple",
-      "kor": "사과",
-      "isDone": false
-    },
-    {
-      "id": "3",
-      "day": 2,
-      "eng": "car1",
-      "kow": "자동차1",
+      "kor": "사과s",
       "isDone": false
     },
     {
@@ -43,18 +48,11 @@
       "isDone": false
     },
     {
-      "id": "3",
-      "day": 3,
-      "eng": "school",
-      "kor": "학교",
-      "isDone": false
-    },
-    {
-      "id": "3",
-      "day": 3,
-      "eng": "pencil",
-      "kor": "연필",
-      "isDone": false
+      "id": "ada1",
+      "day": 2,
+      "eng": "newcar1",
+      "kow": "새자동차1",
+      "isDone": true
     }
   ]
 }

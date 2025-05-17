@@ -21,7 +21,13 @@ export default function Word({word}) {
       <td>
         {word.eng}
       </td>
-
+      <td>
+        {isShow&&word.kor}
+      </td>
+      <td>
+        <button onClick={toggleShow}>뜻 {isShow? "숨기기" : "보여주기"}</button> &nbsp;
+        <button className="button_delete">삭제</button>
+      </td>
     </tr>
   )
 
