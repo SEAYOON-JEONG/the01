@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import dummy from "../db/data.json"
 import Word from "../component/Word";
-import {use, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
+import useFetch from "../hooks/useFetch";
 
 export default function Day(){
 
@@ -11,26 +12,36 @@ export default function Day(){
 
 
   //const wordList = dummy.words.filter( word => word.day == day);
+
+
+
+
+
+
+
+  const words = useFetch(`http://localhost:3010/words?day=${day}`);
+
+
   
-  const [words, setWords] = useState([]);
+  // const [words, setWords] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-      fetch(`http://localhost:3010/words?day=${day}`)
-      .then(res => res.json())
-      .then(data=>{
-        setWords(data);
-      })
+  //     fetch(`http://localhost:3010/words?day=${day}`)
+  //     .then(res => res.json())
+  //     .then(data=>{
+  //       setWords(data);
+  //     })
 
 
-  },[day])
+  // },[day])
 
   return(
 
     <>
     
       <h2>
-        Day All
+        Day {day}
       </h2>
       <table>
         <tbody>

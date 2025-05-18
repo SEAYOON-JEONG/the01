@@ -11,35 +11,9 @@
     {
       "id": "3",
       "day": 3
-    },
-    {
-      "id": "5",
-      "day": 5
-    },
-    {
-      "id": "5",
-      "day": 5
-    },
-    {
-      "id": "5",
-      "day": 5
     }
   ],
   "words": [
-    {
-      "id": "1",
-      "day": 1,
-      "eng": "book",
-      "kor": "책",
-      "isDone": false
-    },
-    {
-      "id": "2",
-      "day": 1,
-      "eng": "apple",
-      "kor": "사과s",
-      "isDone": false
-    },
     {
       "id": "2",
       "day": 2,
@@ -48,11 +22,18 @@
       "isDone": false
     },
     {
-      "id": "ada1",
-      "day": 2,
-      "eng": "newcar1",
-      "kow": "새자동차1",
-      "isDone": true
+      "id": "bf9a",
+      "day": "3",
+      "eng": "kor",
+      "kor": "한국",
+      "isDone": false
+    },
+    {
+      "id": "c32e",
+      "day": 0,
+      "eng": "1",
+      "kor": "1",
+      "isDone": false
     }
   ]
 }

@@ -1,12 +1,15 @@
 import { Navigate, useNavigate} from "react-router-dom"
+import useFetch from "../hooks/useFetch";
 
 export default function CreateDay(){
 
-  const days = [1,2,3,4];
+  const days = useFetch("http://localhost:3010/days");
+  //const days = [1,2,3,4];
+
+  
   const navigate = useNavigate();
 
   function addDay() {
-
     fetch('http://localhost:3010/days', {
         method: "POST",
         headers: {
