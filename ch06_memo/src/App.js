@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
 import './App.css';
 import Home from './pages/Home'
+import Create from './pages/Create' 
+import Update from './pages/Update'
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       </nav>
 
       <Routes>
+        <Route path='/create' element={<Create />} />
         <Route path='/' element={<Home />} />
+        <Route path='/:id' element={<Update />} />
       </Routes>
 
 
