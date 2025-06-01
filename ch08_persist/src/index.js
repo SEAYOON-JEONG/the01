@@ -11,9 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <persisGate loading={null} persistor={persistor}>
+      <PersisGate loading={null} persistor={persistor}>
     <App />
-    </persisGate>
+    </PersisGate>
     </Provider>
   </React.StrictMode>
 );

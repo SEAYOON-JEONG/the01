@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: Poppins, sans-serif;
+}
+
+html {
+  @apply font-poppins scroll-smooth;
+}
+
+body {
+  @apply box-border bg-gray-900 text-gray-100;
+}
+
+.btn-primary {
+  @apply bg-cyan-600 font-semibold text-white rounded-full py-3 px-6 flex items-center gap-2 mx-auto md:mx-0;
+}
+
+.aboutImg::after {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-gray-600 rounded-xl -z-10 rotate-12;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-white;
+}
+
+input, 
+textarea {
+  @apply bg-gray-700 outline-none rounded-lg p-3;
+}
+
+::placeholder {
+  @apply text-lg;
+}
+
+::selection {
+  @apply bg-cyan-600;
+}

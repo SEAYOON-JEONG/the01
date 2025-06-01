@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="p-8">
+  <!-- 1. Color Palette -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold mb-4">1. Color Palette Options</h2>
+    <p class="mb-2">Available color families: blue, gray, slate, zinc, neutral, stone, red, orange, amber, yellow, lime, emerald, teal, cyan, sky, indigo, violet, purple, fuchsia, pink, rose</p>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="border p-4">
+        <p class="text-blue-500">Blue shades:</p>
+        <p class="text-blue-50">50</p>
+        <p class="text-blue-100">100</p>
+        <p class="text-blue-200">200</p>
+        <p class="text-blue-300">300</p>
+        <p class="text-blue-400">400</p>
+        <p class="text-blue-500">500</p>
+        <p class="text-blue-600">600</p>
+        <p class="text-blue-700">700</p>
+        <p class="text-blue-800">800</p>
+        <p class="text-blue-900">900</p>
+        <p class="text-blue-950">950</p>
+      </div>
+      <div class="border p-4">
+        <p class="text-gray-500">Gray shades:</p>
+        <p class="text-gray-50">50</p>
+        <p class="text-gray-100">100</p>
+        <p class="text-gray-200">200</p>
+        <p class="text-gray-300">300</p>
+        <p class="text-gray-400">400</p>
+        <p class="text-gray-500">500</p>
+        <p class="text-gray-600">600</p>
+        <p class="text-gray-700">700</p>
+        <p class="text-gray-800">800</p>
+        <p class="text-gray-900">900</p>
+        <p class="text-gray-950">950</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Opacity Control -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold mb-4">2. Opacity Control</h2>
+    <p class="text-blue-600/100">text-blue-600/100 (full opacity)</p>
+    <p class="text-blue-600/75">text-blue-600/75</p>
+    <p class="text-blue-600/50">text-blue-600/50</p>
+    <p class="text-blue-600/25">text-blue-600/25</p>
+    <p class="text-blue-600/0">text-blue-600/0 (fully transparent)</p>
+    <p class="text-blue-600/[0.33]">Custom opacity: text-blue-600/[0.33]</p>
+  </section>
+
+  <!-- 3. Hover States -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold mb-4">3. Hover States</h2>
+    <button class="text-blue-600 hover:text-red-500 p-2 border rounded">
+      Hover me (blue → red)
+    </button>
+  </section>
+
+  <!-- 4. Responsive Design -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold mb-4">4. Responsive Design</h2>
+    <p class="text-blue-600 md:text-green-600 lg:text-purple-600">
+      This text is blue on mobile, green on medium screens, and purple on large screens
+    </p>
+  </section>
+
+  <!-- 5. Custom Values -->
+  <section>
+    <h2 class="text-xl font-bold mb-4">5. Custom Values</h2>
+    <p class="text-[#3a86ff]">Custom hex color: text-[#3a86ff]</p>
+    <p class="text-blue-600/[0.17]">Custom opacity: text-blue-600/[0.17]</p>
+  </section>
+
+  
+  <!-- 6. Breakpoints (Responsive Design) -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold mb-4">5. Breakpoints (Media Queries)</h2>
+    <p class="text-blue-600 sm:text-red-600 md:text-green-600 lg:text-purple-600 xl:text-pink-600 2xl:text-orange-600 p-4 border rounded">
+      Resize your browser to see color changes:
+      <br>
+      <span class="block sm:hidden">• Default (blue) - under 640px</span>
+      <span class="hidden sm:block md:hidden">• sm:red (640px+)</span>
+      <span class="hidden md:block lg:hidden">• md:green (768px+)</span>
+      <span class="hidden lg:block xl:hidden">• lg:purple (1024px+)</span>
+      <span class="hidden xl:block 2xl:hidden">• xl:pink (1280px+)</span>
+      <span class="hidden 2xl:block">• 2xl:orange (1536px+)</span>
+    </p>
+    <p class="mt-2 text-sm text-gray-600">
+      Breakpoint sizes: sm:640px, md:768px, lg:1024px, xl:1280px, 2xl:1536px
+    </p>
+  </section>
+
+</body>
+</html>
