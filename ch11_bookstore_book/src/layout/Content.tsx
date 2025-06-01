@@ -1,22 +1,23 @@
-import { Container, Nav, Navbar} from "react-bootstrap";
-// import MyCarousel from "../components/Carousel";
-// import bookdata, {Book} from "../data/Bookdata";
-// import { useState } from "react";
+import { Container, Nav, Navbar, Col, Row, Card, Button } from "react-bootstrap";
+import MyCarousel from "../components/Carousel";
+import bookdata, {Book} from "../data/Bookdata";
+import { useState } from "react";
 import { Route, Routes } from 'react-router-dom';
-// import BookItem from "../components/BookItem";
+import BookItem from "../components/BookItem";
 import AboutPage from '../pages/AboutPage';
 import ListPage from '../pages/ListPage';
 import ContactPage from '../pages/ContactPage';
-// import CartPage from '../pages/CartPage';
+import CartPage from '../pages/CartPage';
 import DetailPage from '../pages/DetailPage';
-// import DetailPage2 from '../pages/DetailPage2';
- import LoginPage from '../pages/LoginPage';
- import HomePage from '../pages/HomePage';
- import { PersonFill, BasketFill } from 'react-bootstrap-icons';
+import DetailPage2 from '../pages/DetailPage2';
+import LoginPage from '../pages/LoginPage';
+import HomePage from '../pages/HomePage';
+import { PersonFill, BasketFill } from 'react-bootstrap-icons';
 
 
 const Content : React.FC = () => {
-  
+    const [books, setBook] = useState<Book[]>(bookdata);
+    console.log(books);
 
     return (
         <div>
@@ -45,10 +46,10 @@ const Content : React.FC = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />           
                 <Route path="/list" element={<ListPage />} />           
-                <Route path="/contact" element={<ContactPage />} /> 
-                <Route path="/login" element={<LoginPage />} />  
-                 {/* <Route path="/cart" element={<CartPage />} />            */}
-                <Route path='/detail/:id' element={<DetailPage />} />  
+                <Route path="/contact" element={<ContactPage />} />           
+                <Route path="/cart" element={<CartPage />} />           
+                <Route path='/detail/:id' element={<DetailPage />} />           
+                <Route path="/login" element={<LoginPage />} /> 
                 <Route path="*" element={'페이지가 존재하지 않습니다. 확인해주세요.'} />        
             </Routes>
 

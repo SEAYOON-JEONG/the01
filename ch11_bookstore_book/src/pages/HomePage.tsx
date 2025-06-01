@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import MyCarousel from '../components/Carousel';
 import { Container, Row } from 'react-bootstrap';
 import BookItem from '../components/BookItem';
-import bookdata from '../data/Bookdata';
-import type { Book } from '../data/Bookdata';
+import bookdata, { Book } from '../data/Bookdata';
 
 const HomePage: React.FC = () => {     
-    let [books] = useState<Book[]>(bookdata);
+    let [books, setBook] = useState<Book[]>(bookdata);
     return (
         <div>
             <MyCarousel></MyCarousel>
