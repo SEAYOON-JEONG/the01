@@ -27,7 +27,7 @@ const DetailComp = ({ productDetail }) => {
   };
 
   return (
-    <div className="flex gap-10 my-10">
+    <div className="flex gap-10 my-10" style={{border: '1px solid red'}}>
       <img
         className="w-[650px] h-[650px] object-contain my-12"
         src={productDetail?.image}

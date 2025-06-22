@@ -7,10 +7,10 @@ import DetailComp from "../components/detail/DetailComp";
 import Loading from "../components/Loading";
 
 const Detail = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const { productDetailStatus, productDetails } = useSelector(
-    (state) => state.products
+  const { id } = useParams(); 
+  const dispatch = useDispatch(); 
+  const { productDetailStatus, productDetails } = useSelector( 
+    (state) => state.products 
   );
 
   useEffect(() => {

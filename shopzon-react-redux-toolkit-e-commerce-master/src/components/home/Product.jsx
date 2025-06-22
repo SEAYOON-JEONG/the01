@@ -5,7 +5,7 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
 
   return (
-    <div onClick={()=> navigate(`products/${product.id}`)} className="w-[407px] p-5 m-2 border rounded-[8%] relative h-[380px]">
+    <div onClick={()=> navigate(`products/${product.id}`)} className="w-[407px] p-5 m-2 border rounded-[8%] relative h-[380px]"  style={{border: '1px solid blue'}}>
       <div className="text-2xl font-bold absolute rounded-full top-2 right-1.5 bg-black text-white">
         {" "}
         {product?.price} <span className="text-sm">TL</span>{" "}

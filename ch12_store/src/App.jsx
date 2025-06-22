@@ -12,14 +12,16 @@ function App() {
 
   return (
     <>
-     <div className='w-10/12 m-auto'>
-        <Navbar>f</Navbar>
-
+      <PageContainer>
+        <Navbar />
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<Detail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/products/search" element={<Search />} />
 
-          <Route path="/" element={<Home />}  />
         </Routes>
-     </div>
+      </PageContainer>
     </>
   )
 }

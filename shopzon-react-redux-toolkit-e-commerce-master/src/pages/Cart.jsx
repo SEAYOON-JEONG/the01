@@ -18,7 +18,7 @@ const Cart = () => {
   return (
     <div>
       {carts?.length > 0 ? (
-        <div>
+        <div style={{border: '1px solid green'}}>
           {carts?.map((cart, i) => (
             <CartComp key={i} cart={cart} />
           ))}

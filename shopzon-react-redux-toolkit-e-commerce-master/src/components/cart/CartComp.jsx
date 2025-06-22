@@ -7,7 +7,7 @@ const CartComp = ({ cart }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between" style={{border: '1px solid yellow'}}>
       <img
         className="w-[120px] h-[120px] object-contain my-5"
         src={cart?.image}
