@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데일리 인사이트 — 시윤의 주말판</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --border: #e5e8eb;
+      --border-dark: #191f28;
+      --text-main: #191f28;
+      --text-sub: #4e5968;
+      --text-muted: #8b95a1;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 16px 60px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* 신문 헤더 */
+    header {
+      padding: 32px 0 16px;
+      border-bottom: 2px solid var(--border-dark);
+      text-align: center;
+    }
+    .newspaper-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    h1.newspaper-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      color: var(--border-dark);
+    }
+    .newspaper-subtitle {
+      font-size: 15px;
+      color: var(--text-sub);
+      font-weight: 400;
+    }
+
+    /* 공지 박스 */
+    .greeting-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+    .greeting-box strong {
+      color: var(--text-main);
+    }
+
+    /* 이번 주의 숫자 */
+    .stats-section {
+      margin: 28px 0;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .stat-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* 메인 기사 */
+    .article {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .article-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+    .article-body {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+    .article-body p {
+      margin-bottom: 14px;
+    }
+
+    /* 텐핑 제휴 연동 배너 영역 */
+    .ad-wrapper {
+      margin: 24px 0 8px;
+      border: 1px solid #d0d7de;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    .ad-header-label {
+      background: #f6f8fa;
+      padding: 8px 16px;
+      font-size: 11px;
+      color: #57606a;
+      border-bottom: 1px solid #d0d7de;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+    }
+    .ad-content {
+      padding: 20px;
+      text-align: center;
+    }
+    .ad-banner-img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto 16px;
+    }
+    .ad-copy-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1f2328;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .ad-copy-desc {
+      font-size: 14px;
+      color: #656d76;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .ad-cta-btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 420px;
+      background: #0969da;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: background 0.15s ease;
+      box-shadow: 0 2px 6px rgba(9, 105, 218, 0.25);
+    }
+    .ad-cta-btn:hover {
+      background: #0856b5;
+    }
+
+    /* 서브 뉴스 리스트 */
+    .sub-news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .sub-news-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      transition: border-color 0.15s;
+    }
+    .sub-news-category {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .sub-news-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .sub-news-desc {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    /* 푸터 */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      h1.newspaper-title { font-size: 26px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .article { padding: 20px; }
+      .article-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 신문 상단 헤더 -->
+    <header>
+      <div class="newspaper-meta">
+        <span>제 1 호 · 2026년 45주차</span>
+        <span>2026년 11월 7일 토요일 (주말판)</span>
+      </div>
+      <h1 class="newspaper-title">데일리 인사이트</h1>
+      <p class="newspaper-subtitle">한 주의 핵심 경제 지표와 놓치지 말아야 할 생활 지원 정보</p>
+    </header>
+
+    <!-- 첫 인사 -->
+    <div class="greeting-box">
+      <strong>시윤의 데일리 리포트에 오신 것을 환영합니다.</strong> 이번 주말판에서는 최근 청년·미혼남녀 대상 지자체 지원금 트렌드와 함께, 실질적인 가입비 혜택을 받을 수 있는 민간 제휴 지원사업 소식을 집중 정리해 드립니다.
+    </div>
+
+    <!-- 이번 주의 숫자 -->
+    <div class="stats-section">
+      <div class="section-label">THIS WEEK IN NUMBERS</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">최대 300만</div>
+          <div class="stat-desc">서울·경기 지원사업 가입비 지원 한도</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">-1 ℃</div>
+          <div class="stat-desc">올가을 첫 영하권 서울 아침 기온</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">85 FPS</div>
+          <div class="stat-desc">차세대 전자잉크 스마트폰 고주사율</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인 기사 (정보성 기획 + 제휴 마케팅 자연스러운 연결) -->
+    <article class="article">
+      <span class="article-tag">생활 경제 & 지원금</span>
+      <h2 class="article-title">"가입비 부담 덜고 좋은 인연 찾는다"... 서울·경기 결혼장려 지원금 사업 본격화</h2>
+      
+      <div class="article-body">
+        <p>최근 고물가와 주거비 부담으로 미혼 남녀의 만남과 결혼 준비 문턱이 높아진 가운데, 공공 및 민간 차원의 결혼 장려 지원책이 실질적인 혜택 위주로 빠르게 재편되고 있습니다.</p>
+        <p>특히 서울 및 경기권에서는 기존의 형식적인 지자체 매칭 행사를 넘어, 검증된 전문 매칭 시스템을 이용할 수 있도록 가입비의 상당 부분을 실질적으로 보조해 주는 지원 프로그램들이 미혼 직장인들 사이에서 큰 주목을 받고 있습니다.</p>
+        <p>가장 대표적인 프로그램 중 하나인 '노블리에 결혼정보회사 가입 지원금사업'의 경우, 서울·경기 지역 거주 미혼 남녀를 대상으로 최소 100만 원에서 최대 300만 원까지의 가입비를 지원해 만남의 경제적 부담을 크게 덜어주고 있습니다.</p>
+      </div>
+
+      <!-- 시윤 님의 텐핑 캠페인 실제 연동 박스 -->
+      <div class="ad-wrapper">
+        <div class="ad-header-label">
+          <span>제휴 지원 정보 안내</span>
+          <span>서울/경기 거주자 한정</span>
+        </div>
+        <div class="ad-content">
+          <a href="https://Ocayn.info/t8hco5ey07" target="_blank" rel="noopener noreferrer">
+            <img class="ad-banner-img" src="http://img.tenping.kr/Content/Upload/Images/2026012312010001_Dis_20261001101232.png" alt="노블리에 결혼정보회사 가입 지원금사업">
+          </a>
+          <h3 class="ad-copy-title">이제는 가입비도 지원받고 인연도 만나세요!</h3>
+          <p class="ad-copy-desc">
+            노블리에만의 특별한 시스템, 결혼정보회사가입 지원금사업!<br>
+            최소 100만원부터 최대 300만원까지 가입비 지원을 통해 부담 없이 나의 인연을 찾아보세요.
+          </p>
+          <a class="ad-cta-btn" href="https://Ocayn.info/t8hco5ey07" target="_blank" rel="noopener noreferrer">
+            지원금 확인 및 상담 신청하기 »
+          </a>
+        </div>
+      </div>
+
+      <!-- 텐핑 광고 태그 삽입 -->
+      <div style="margin-top: 20px;">
+        <tenping class="adsbytenping" style="width:100%; margin:0 auto; display:block;" tenping-ad-type="CInmlFSNPJoo9rBMK%2brlTg%3d%3d" tenping-ad-client="AmJINpXEE2Vm2IQ9rlrwDn%2feObProNj4XtIDAnKBxT34m0opf1PlOgJcwWkdZ2Ve" tenping-ad-campaign="2026012312010001" tenping-ad-distributionAddID="2026110715090004" tenping-ad-contain_image="false" tenping-ad-contain_logo="false" tenping-ad-contain_Plugin="false" tenping-ad-contain_TpCall="false" tenping-ad-theme="default" tenping-ad-contain_privacy="false"></tenping>
+      </div>
+    </article>
+
+    <!-- 서브 뉴스 큐레이션 -->
+    <div class="sub-news-list">
+      <div class="sub-news-item">
+        <div class="sub-news-category">테크 & 생산성</div>
+        <div class="sub-news-title">눈 편한 전자잉크 스마트폰, 안드로이드 16 탑재 듀얼스크린 모델 등장</div>
+        <div class="sub-news-desc">디멘시티 8300 플래그십 AP와 5G 통화를 탑재한 빅미 하이브레이크 듀얼 3가 공식 예약 판매에 돌입하며 스마트폰 시장의 새로운 틈새를 공략하고 있습니다.</div>
+      </div>
+      <div class="sub-news-item">
+        <div class="sub-news-category">부동산 & 자산</div>
+        <div class="sub-news-title">상·하위 20% 주택 자산 격차 290배... 주거 사다리 정책 재점검</div>
+        <div class="sub-news-desc">자산 상위 20% 가구와 하위 가구 간의 주택 가격 격차가 290배에 달하며, 실수요자를 위한 디딤돌 대출 및 청년 주거 정책의 실효성이 다시 도마 위에 올랐습니다.</div>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+      <p>데일리 인사이트 · 발행인: 정시윤</p>
+      <p style="margin-top: 4px;">본 페이지는 제휴 마케팅 활동의 일환으로, 일정액의 수수료를 제공받을 수 있습니다.</p>
+    </footer>
+  </div>
+
+  <!-- 텐핑 광고 비동기 스크립트 -->
+  <script async src="//ads.tenping.kr/scripts/adsbytenping.min.js"></script>
+</body>
+</html>
