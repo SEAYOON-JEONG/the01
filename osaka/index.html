@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데일리 트래블 — 오사카 난바역 갓성비 호텔 TOP 3 특별판</title>
+  
+  <!-- Open Graph / SNS 공유 카드 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2026 오사카 난바역 가성비 호텔 TOP 3 (도톤보리 도보 3분 · 아고다 특가)">
+  <meta property="og:description" content="1박 10만원대 위치 깡패! 한국인 여행객 만족도 1위 소테츠부터 루프탑 노천 스파 칸데오까지 핵심 비교">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1590559899731-a372a14b0b14?auto=format&fit=crop&w=800&q=80">
+  <meta property="og:url" content="https://seayoon-jeong.github.io/the01/osaka/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="2026 오사카 난바역 가성비 호텔 TOP 3 (도톤보리 도보 3분 · 아고다 특가)">
+  <meta name="twitter:description" content="1박 10만원대 위치 깡패! 한국인 만족도 1위 숙소 완벽 정리">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --border: #e5e8eb;
+      --border-dark: #191f28;
+      --text-main: #191f28;
+      --text-sub: #4e5968;
+      --text-muted: #8b95a1;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --agoda: #e11d48;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 16px 60px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* 헤더 */
+    header {
+      padding: 32px 0 16px;
+      border-bottom: 2px solid var(--border-dark);
+      text-align: center;
+    }
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    h1.title {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      color: var(--border-dark);
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-sub);
+    }
+
+    /* 인트로 카드 */
+    .intro-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* 호텔 카드 */
+    .hotel-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    .hotel-rank {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--agoda);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .hotel-name {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+    .hotel-en-name {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .hotel-highlights {
+      list-style: none;
+      margin-bottom: 16px;
+      background: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    .hotel-highlights li {
+      margin-bottom: 6px;
+      color: var(--text-sub);
+    }
+    .hotel-highlights li:last-child {
+      margin-bottom: 0;
+    }
+    .hotel-desc {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* 아고다 예약 버튼 */
+    .booking-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .price-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .price-num {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--agoda);
+    }
+    .booking-btn {
+      display: inline-block;
+      background: var(--agoda);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: opacity 0.15s;
+    }
+    .booking-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* 지난 기획 보존 */
+    .archive-box {
+      margin: 32px 0 20px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .archive-box a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="meta-bar">
+        <span>DAILY TRAVEL · SPECIAL ISSUE</span>
+        <span>2026 겨울 오사카 특집호</span>
+      </div>
+      <h1 class="title">오사카 난바역 가성비 숙소 TOP 3</h1>
+      <p class="subtitle">도톤보리 도보권 · 실평점 8.5 이상 · 1박 10만원대 엄선</p>
+    </header>
+
+    <div class="intro-card">
+      <strong>여행의 반은 숙소 위치가 결정합니다.</strong> 난바역과 도톤보리 글리코상을 걸어서 3분 만에 이동할 수 있으면서도, 1박 10만 원 안팎의 뛰어난 가성비와 룸 컨디션을 자랑하는 알짜 호텔 3곳을 아고다 단독 특가 기준으로 엄선했습니다.
+    </div>
+
+    <!-- 호텔 1 -->
+    <div class="hotel-card">
+      <span class="hotel-rank">BEST 1 · 한국인 압도적 만족도</span>
+      <h2 class="hotel-name">소테츠 그랜드 프레사 오사카 난바</h2>
+      <div class="hotel-en-name">Sotetsu Grand Fresa Osaka-Namba</div>
+      <ul class="hotel-highlights">
+        <li>📍 <strong>위치:</strong> 닛폰바시역 도보 1분, 도톤보리 도보 3분</li>
+        <li>⭐ <strong>평점:</strong> 아고다 평점 8.6 (후기 2만 개 이상)</li>
+        <li>✨ <strong>장점:</strong> 한국어 가능 직원 상주, 1층 편의점 연결, 깔끔한 신축 컨디션</li>
+      </ul>
+      <p class="hotel-desc">
+        오사카 초보 여행자부터 N차 방문객까지 실패 없는 1순위 호텔입니다. 난바역과 도톤보리 먹자골목이 코앞이라 밤늦게까지 야식을 즐기고 걸어 들어오기 완벽한 위치입니다.
+      </p>
+      <div class="booking-box">
+        <div>
+          <div class="price-tag">아고다 단독 특가</div>
+          <div class="price-num">1박 약 10만 원대~</div>
+        </div>
+        <a class="booking-btn" href="https://seayoon-jeong.github.io/the01/osaka/" target="_blank" rel="noopener noreferrer">아고다 최저가 확인 »</a>
+      </div>
+    </div>
+
+    <!-- 호텔 2 -->
+    <div class="hotel-card">
+      <span class="hotel-rank">BEST 2 · 옥상 노천 온천 보유</span>
+      <h2 class="hotel-name">칸데오 호텔스 오사카 난바</h2>
+      <div class="hotel-en-name">Candeo Hotels Osaka Namba</div>
+      <ul class="hotel-highlights">
+        <li>📍 <strong>위치:</strong> 도톤보리 도보 5분, 신사이바시 상점가 인접</li>
+        <li>⭐ <strong>평점:</strong> 아고다 평점 8.5 (만족도 최상)</li>
+        <li>✨ <strong>장점:</strong> 최상층 루프탑 대욕장(스카이스파) & 사우나 무료 이용</li>
+      </ul>
+      <p class="hotel-desc">
+        하루 종일 유니버셜 스튜디오나 관광지를 걷고 난 뒤, 오사카 야경을 내려다보며 노천 온천을 즐길 수 있는 힐링 숙소입니다. 일본 특유의 대욕장 문화를 도심 한가운데서 만끽할 수 있어 인기가 뜨겁습니다.
+      </p>
+      <div class="booking-box">
+        <div>
+          <div class="price-tag">스파 포함 특가</div>
+          <div class="price-num">1박 약 14만 원대~</div>
+        </div>
+        <a class="booking-btn" href="https://seayoon-jeong.github.io/the01/osaka/" target="_blank" rel="noopener noreferrer">아고다 최저가 확인 »</a>
+      </div>
+    </div>
+
+    <!-- 호텔 3 -->
+    <div class="hotel-card">
+      <span class="hotel-rank">BEST 3 · 위치 끝판왕</span>
+      <h2 class="hotel-name">크로스 호텔 오사카</h2>
+      <div class="hotel-en-name">Cross Hotel Osaka</div>
+      <ul class="hotel-highlights">
+        <li>📍 <strong>위치:</strong> 글리코상 도보 1분 (도톤보리 메인 거리 입구)</li>
+        <li>⭐ <strong>평점:</strong> 아고다 평점 8.8 (위치 만족도 9.5)</li>
+        <li>✨ <strong>장점:</strong> 일본 비즈니스호텔 대비 1.5배 넓은 객실, 고급 어메니티</li>
+      </ul>
+      <p class="hotel-desc">
+        도톤보리 한복판에 자리 잡아 쇼핑백이 무거워질 때마다 호텔에 짐을 두고 다시 나올 수 있을 정도로 압도적인 접근성을 자랑합니다. 좁은 일본 호텔이 답답한 분들께 강력 추천합니다.
+      </p>
+      <div class="booking-box">
+        <div>
+          <div class="price-tag">얼리버드 할인</div>
+          <div class="price-num">1박 약 17만 원대~</div>
+        </div>
+        <a class="booking-btn" href="https://seayoon-jeong.github.io/the01/osaka/" target="_blank" rel="noopener noreferrer">아고다 최저가 확인 »</a>
+      </div>
+    </div>
+
+    <!-- 지난 기획 보존 링크 -->
+    <div class="archive-box">
+      <span>지난 기획: 서울·경기 결혼장려 가입지원금 특별판</span>
+      <a href="./wedding/">보러 가기 →</a>
+    </div>
+
+    <footer>
+      <p>데일리 트래블 · 발행인: 정시윤</p>
+      <p style="margin-top: 4px;">본 페이지는 아고다 및 텐핑 제휴 마케팅 활동의 일환으로, 예약 완료 시 일정액의 수수료를 제공받을 수 있습니다.</p>
+    </footer>
+  </div>
+
+  <script async src="//ads.tenping.kr/scripts/adsbytenping.min.js"></script>
+</body>
+</html>
